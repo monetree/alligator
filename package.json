@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "install": "^0.12.2",
+    "isomorphic-fetch": "^2.2.1",
+    "npm": "^6.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "superagent": "^5.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
