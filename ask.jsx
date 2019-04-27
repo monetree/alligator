@@ -15,12 +15,17 @@ export default class Pagination extends React.Component {
 
     }
 
+   
     componentDidMount(){
         document.getElementById('us').click()
     }
 
-    loadContacts = () => {
-        const {per, page, contacts, country} = this.state;
+    loadContacts = (country) => {
+        const {per, page, contacts} = this.state;
+        if (country === null){
+            country = 'United States'
+        }
+        console.log(country)
         const url = `http://127.0.0.1:8000/api/users/?limit=${per}&page=${page}&country=${country}`
         fetch(url)
         .then(response => response.json())
@@ -46,9 +51,9 @@ export default class Pagination extends React.Component {
           country: value,
           page:1
         }, () => {
-          this.loadContacts();
+          this.loadContacts(value);
         })
-    }
+      }
 
 
     render(){

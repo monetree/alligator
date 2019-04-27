@@ -7,8 +7,8 @@ export default class App extends Component {
     return (
       <div className="container">
         <h1>Contacts</h1>
-        <Contactlist />
-        {/* <Pagination /> */}
+        {/* <Contactlist /> */}
+        <Pagination />
       </div>
     )
   }
