@@ -19,7 +19,7 @@ export default class Pagination extends React.Component {
         document.getElementById('us').click()
     }
 
-    loadContacts = (one) => {
+    loadContacts = () => {
         const {per, page, country} = this.state;
         const url = `http://127.0.0.1:8000/api/users/?limit=${per}&page=${page}&country=${country}`
         fetch(url)
@@ -34,11 +34,12 @@ export default class Pagination extends React.Component {
         )
     }
 
-    loadMore = (country) => {
+    loadMore = () => {
         this.setState(prevState => ({
             page: prevState.page + 1,
-        }), this.loadContacts())
+        }), () => this.loadContacts())
     }
+
 
     handleCountry = (event) => {
         let { value } = event.target;
@@ -46,7 +47,7 @@ export default class Pagination extends React.Component {
           country: value,
           page:1
         }, () => {
-          document.getElementById('load-more').click()
+        //   document.getElementById('load-more').click()
           this.loadContacts();
         })
     }
